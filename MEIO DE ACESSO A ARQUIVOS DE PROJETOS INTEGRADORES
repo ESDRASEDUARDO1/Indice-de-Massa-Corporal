@@ -1,0 +1,32 @@
+anos = list(range(2012, 2025))  # Anos de 2012 a 2024
+turnos = ['Noite']
+Classes = list("AB")  # 2 turmas A e B
+curso = "Redes"
+modulos = range(1, 4)  # Módulos 1º,2º e 3º.
+
+# Dicionário para armazenar as turmas
+turmas = {}
+
+# Forma como ficará as turmas no dicionário
+for ano in anos:
+    turmas[ano] = {}  # começando o dicionário com o ano
+    turmas[ano]['curso'] = curso  
+    turmas[ano]['turno'] = turnos[0]  # Adiciona o campo turno e curso logo acima.
+    turmas[ano]['modulos'] = {}  # Se Inicializa o dicionário com os módulos
+    for modulo in modulos:
+        if modulo < 3:
+            turma_nome = f"{curso} {modulo}° A e B {ano}" # classes A e B
+        else:
+            turma_nome = f"{curso} {modulo}° A {ano}"
+        turmas[ano]['modulos'][modulo] = turma_nome  # Adiciona a turma ao módulo
+
+# Forma que será exibida a saida. 
+for ano, info in turmas.items():
+    print(f"Ano: {ano}")
+    print(f"Curso: {info['curso']}")
+    print(f"Turno: {info['turno']}")
+    for modulo, turma in info['modulos'].items():
+        print(f"Módulo: {modulo}°")
+        print(f"{turma}")
+    print()  # Espaço em branco entre anos apenas pra ficar organizado
+    
